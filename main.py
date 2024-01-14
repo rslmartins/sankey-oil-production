@@ -39,7 +39,8 @@ df_1972 = df.loc[df.Year==1972,["Entity", "Oil production (TWh)"]].sort_values("
 "European Union (27)",
 "EU28 (Shift)",
 "Europe",
-],axis=0).reset_index().head(25).rename({"Oil production (TWh)": "1972 Production"}, axis=1).replace({"USSR": "Russia"})
+"Oceania",
+],axis=0).reset_index().head(24).rename({"Oil production (TWh)": "1972 Production"}, axis=1).replace({"USSR": "Russia"})
 df_1972 = df_1972.reset_index()
 df_1972["1972 Rank"] = df_1972["index"].apply(lambda x: f"{x+1} ") + df_1972["Entity"]
 df_1972.drop(["index"],axis=1,inplace=True)
@@ -65,6 +66,7 @@ df_2022 = df.loc[df.Year==2022,["Entity", "Oil production (TWh)"]].sort_values("
 "Europe (EI)",
 "European Union (27)",
 "Europe",
+"Oceania",
 ],axis=0).reset_index().head(50).rename({"Oil production (TWh)": "2022 Production"}, axis=1)
 df_2022 = df_2022.reset_index()
 df_2022["2022 Rank"] = df_2022["index"].apply(lambda x: f"{x+1} ") + df_2022["Entity"]
