@@ -1,6 +1,6 @@
 # Import packages
 import pandas as pd
-from pySankey.sankey import sankey
+from pysankey import sankey
 import matplotlib.pyplot as plt
 
 # Load data and filter
@@ -79,7 +79,8 @@ sankey(
     left=df_final["1972 Rank"],
     leftWeight= df_final["1972 Production"],
     right=df_final["2022 Rank"],
-    rightWeight=df_final["2022 Production"], 
+    rightWeight=df_final["2022 Production"],
+    rightLabels=(sorted(df_final["2022 Rank"], key=lambda s: int(s.split()[0]))),
     aspect=60,
     fontsize=12.5,
 )
@@ -92,7 +93,7 @@ fig.set_size_inches(18, 18)
 
 # Set the color of the background to white
 fig.set_facecolor("w")
-plt.title("Top countries by oil production (1972-2022)", fontsize=18)
+plt.title("Top countries by oil production in TWh (1972-2022)", fontsize=18)
 
 # Save the figure
 fig.savefig("sankey.png",
